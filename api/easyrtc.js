@@ -11030,7 +11030,8 @@ var Easyrtc = function() {
         var msgData = {
             apiVersion: self.apiVersion,
             applicationName: self.applicationName,
-            setUserCfg: collectConfigurationInfo(true)
+            // unuse
+            // setUserCfg: collectConfigurationInfo(true)
         };
 
         if (!self.roomJoin) {
