@@ -64,12 +64,25 @@ easyrtc.on("authenticate", function (socket, easyrtcid, appName, username, crede
     next(null);
 });
 
+easyrtc.on("generatePeoples", function(connectionObj, roomName, next)
+{
+    connectionObj.CreatePeopleList(["990183536", '17695926312']);
+    next(null);
+});
+
 easyrtc.on("roomCreate", function (appObj, creatorConnectionObj, roomName, roomOptions, callback) {
 
     easyrtc.util.logDebug("[" + appObj.getAppName() + "]" + (creatorConnectionObj ? "[" + creatorConnectionObj.getEasyrtcid() + "]" : "") + " Room [" + roomName + "] Running func 'onRoomCreate'");
     easyrtc.events.defaultListeners.roomCreate(appObj, creatorConnectionObj, roomName, roomOptions, callback)
     callback(null);
 });
+
+easyrtc.on("emitCustomMsg", function(connectionObj, msg, next) {
+    
+    connectionObj.util.logInfo("emit custom message");
+    next(null);
+});
+
 
 // Listen on port 8080
 webServer.listen(8080, function () {
