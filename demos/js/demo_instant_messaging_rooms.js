@@ -187,7 +187,7 @@ function connect() {
     if (password) {
         easyrtc.setCredential({password: password});
     }
-    easyrtc.connect("Milk", loginSuccess, loginFailure);
+    easyrtc.connect("easyrtc.instantMessaging", loginSuccess, loginFailure);
 }
 
 function disconnect() {
