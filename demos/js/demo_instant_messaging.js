@@ -36,7 +36,7 @@ function addToConversation(who, msgType, content) {
 function connect() {
     easyrtc.setPeerListener(addToConversation);
     easyrtc.setRoomOccupantListener(convertListToButtons);
-    easyrtc.connect("easyrtc.instantMessaging", loginSuccess, loginFailure);
+    easyrtc.connect("Milk", loginSuccess, loginFailure);
 }
 
 
