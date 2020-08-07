@@ -11242,6 +11242,9 @@ var Easyrtc = function() {
 
         if (!preallocatedSocketIo && self.webSocket) {
             self.showError(self.errCodes.DEVELOPER_ERR, "Attempt to connect when already connected to socket server");
+            self.webSocket.disconnect();
+            self.webSocket.close();
+            self.webSocket = 0;
             return;
         }
         pc_config = {};

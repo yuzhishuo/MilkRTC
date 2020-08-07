@@ -64,9 +64,17 @@ easyrtc.on("authenticate", function (socket, easyrtcid, appName, username, crede
     next(null);
 });
 
+
+
 easyrtc.on("generatePeoples", function(connectionObj, roomName, next)
 {
-    connectionObj.CreatePeopleList(["990183536", '17695926312']);
+    var Peoples = [
+
+        { id: "17695926312", nickname: "cc"},
+        { id: "18630977388", nickname: "cc"}
+    ];
+
+    connectionObj.CreatePeopleList(Peoples);
     next(null);
 });
 
@@ -78,8 +86,9 @@ easyrtc.on("roomCreate", function (appObj, creatorConnectionObj, roomName, roomO
 });
 
 easyrtc.on("emitCustomMsg", function(connectionObj, msg, next) {
-    
-    connectionObj.util.logInfo("emit custom message");
+    var easyrtcid = connectionObj.getEasyrtcid();
+
+    connectionObj.util.logInfo("["+ easyrtcid + "]" + "emit custom message");
     next(null);
 });
 
